@@ -7,9 +7,11 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "g": "./tools/scripts/generate-resource.sh"
   },
   "dependencies": {
+    "@react-native-community/cli-doctor": "^12.3.6",
     "react": "18.2.0",
     "react-native": "0.73.4"
   },
@@ -29,6 +31,14 @@
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "pretty-quick --staged",
+      "post-checkout": "yarn",
+      "post-rewrite": "yarn"
+    }
   },
   "engines": {
     "node": ">=18"
